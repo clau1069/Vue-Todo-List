@@ -25,6 +25,8 @@ function createNewNote() {
   //emite la funcion printNewNote en el padre, pasandole la nueva nota
   emit ('printNewNote', note)
   emit ("closeBS")
+  inputTitle.value=''
+  inputContent.value=''
 }
 function autoResizeTextarea(e){
   const textarea = e.target
