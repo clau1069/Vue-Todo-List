@@ -7,15 +7,31 @@
 }
 
 body {
-  background-color: #f5f4ff;
+  background-color: #9e9daf;
   font-family: "Heebo", sans-serif;
   font-weight: 400;
+  width: 450px;
+  margin: 0 auto;
   height: 100vh;
-  display: flex;
-  flex-direction: column;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  
 }
 
+div#app{
+  border-radius: 10px;
+  background-color: #f5f4ff;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  -webkit-box-shadow: 5px 5px 8px 0px rgba(0, 0, 0, 0.17);
+  -moz-box-shadow: 5px 5px 8px 0px rgba(0, 0, 0, 0.17);
+  box-shadow: 5px 5px 8px 0px rgba(0, 0, 0, 0.17);
+  position: relative;
+
+}
 header {
+  border-radius: 10px 10px 0 0 ;
   padding: 15px;
   display: flex;
   align-items: center;
@@ -35,6 +51,14 @@ header .icono-koala {
 header h1 {
   font-size: larger;
   color: #8B80EF;
+}
+body main {
+  margin: 15px;
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  margin-bottom: 50px;
 }
 #containter-scroll {
   flex-grow: 1;

@@ -138,11 +138,14 @@ function resizeTextarea() {
 }
 
 /* cuando es editable */
-#note[data-editable="true"] {
+#note[data-editable="true"]{
+    background-color: #B6B0FB;
+}
+#note >span {
     display: flex;
     flex-direction: column;
     gap: 6px;
-    background-color: #B6B0FB;
+    
 }
 
 #note[data-editable="true"] [type=text],

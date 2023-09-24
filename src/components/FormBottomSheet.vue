@@ -52,7 +52,7 @@ function autoResizeTextarea(e){
   left: 0;
   width: 100%;
   background-color: #B6B0FB;
-  border-radius: 12px 12px 0 0;
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;

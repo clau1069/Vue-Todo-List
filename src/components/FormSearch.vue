@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from "vue"
-const input = ref()
+const input = ref('')
 const checked = ref(false)
 //"$emit('getInputValues', input, checkbox)"
 

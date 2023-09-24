@@ -25,9 +25,8 @@ localStorageKeys.forEach((id) => {
 })
 
 function vShowNote(note){
-  if(inputCheckbox.value == true && note.checked == false){
-    return false
-  }
+  if(inputCheckbox.value == false && inputSearch == ''){return true}
+  else if (inputCheckbox.value == true && note.checked == false){return false}
   return note.title.toLowerCase().includes(inputSearch.value.toLowerCase()) || note.content.toLowerCase().includes(inputSearch.value.toLowerCase()) 
 
 }
@@ -56,23 +55,23 @@ function vShowNote(note){
         
       </div>
     </div>
-    <!-- Floating Button -->
-    <button v-show="showBottomSheet == false" id="floating-button" @click.stop="showBottomSheet = true"></button>
   </main>
-  <!--Bottom Sheet Nueva Nota-->
+      <!-- Floating Button -->
+    <button v-show="showBottomSheet == false" id="floating-button" @click.stop="showBottomSheet = true"></button>
+    <!--Bottom Sheet Nueva Nota-->
   <BottomSheet
     :keys="localStorageKeys"
     v-show="showBottomSheet == true"
     @closeBS="showBottomSheet = false"
     @printNewNote = "(note)=> notes.push(note)"
     />
+  
 </template>
 
 <style>
 #containter-scroll {
   flex-grow: 1;
   position: relative;
-  min-height: 500px;
 }
 
 #containter-scroll #container-notes {
@@ -83,6 +82,7 @@ function vShowNote(note){
   display: flex;
   flex-direction: column;
   gap: 12px;
+  
 }
 #floating-button {
   position: absolute;
