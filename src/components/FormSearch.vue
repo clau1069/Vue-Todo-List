@@ -2,7 +2,6 @@
 import { ref } from "vue"
 const input = ref('')
 const checked = ref(false)
-//"$emit('getInputValues', input, checkbox)"
 
 </script>
 
@@ -16,6 +15,10 @@ const checked = ref(false)
             <p>Solo completados</p>
             <input @change="$emit('getInputValues', input, checked)" v-model="checked" type="checkbox" >
         </div>
+        <!-- <div class="filter">
+            <p>En progreso</p>
+            <input @change="$emit('getInputValues', input, checked)" v-model="checked" type="checkbox" >
+        </div> -->
     </form>
 </template>
 
@@ -62,7 +65,7 @@ const checked = ref(false)
     background-size: contain;
     background-repeat: no-repeat;
 }
-/* .filter {
+.filter {
   display: flex;
   margin: 6px 23px 15px auto;
   align-items: center;
@@ -88,6 +91,6 @@ const checked = ref(false)
   border: 2px solid #8B80EF;
   background-color: #8B80EF;
   background-image: url(../assets/icons8-marca-de-verificación-64.png);
-} */
+}
 </style>
 
