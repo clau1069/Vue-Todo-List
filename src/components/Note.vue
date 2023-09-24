@@ -15,7 +15,9 @@ let textareaScrollHeight = ref(0)
 note.value.checked = note.value.checked === "true" || note.value.checked === true
 
 onMounted(() => {
-    textareaScrollHeight.value = textarea.value.scrollHeight
+    //hace el resize del textarea del contenido cuando es editable
+    resizeTextarea()
+    //vuelve a poner la nota como "No editable" después de haber determinado el height del textarea
     dataEditable.value = false
 })
 
@@ -24,11 +26,9 @@ function toggleCheckedProperty() {
     note.value.checked = !note.value.checked
     localStorage.setItem(note.value.id, JSON.stringify(note.value))
 }
-function changeDataEditable(event) {
+function edit(event) {
     if (event.target.tagName != "INPUT" && dataEditable.value == false) {
         dataEditable.value = true
-        textarea.value.style.height = "auto"
-        textarea.value.style.height = (textareaScrollHeight.value + 5)  + 'px'
     }
 }
 function save() {
@@ -40,16 +40,15 @@ function save() {
 function eliminate() {
     localStorage.removeItem(note.value.id)
     exist.value = false
-
+    
 }
 function resizeTextarea() {
     textarea.value.style.height = "auto"
-    textarea.value.style.height = textarea.value.scrollHeight + 'px'
-    textareaScrollHeight.value = textarea.value.scrollHeight
+    textarea.value.style.height = textarea.value.scrollHeight + 5 + 'px'
 }
 </script>
 <template >
-    <div v-if="exist" id="note" @click.stop="changeDataEditable" :data-id="note.id" :data-editable="dataEditable"
+    <div v-if="exist" id="note" @click.stop="edit" :data-id="note.id" :data-editable="dataEditable"
         :data-checked="note.checked">
         <!-- cuando no es editable -->
         <span v-show="dataEditable === false">
